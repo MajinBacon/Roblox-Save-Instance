@@ -723,7 +723,7 @@ local ESCAPES = {
 	["\0"] = "",
 }
 
-for rangeStart, rangeEnd in string.gmatch(ESCAPES_PATTERN, "(.)%-(.)") do
+for rangeStart, rangeEnd in string.gmatch(ESAPES_PATTERN, "(.)%-(.)") do
 	for charCode = string.byte(rangeStart), string.byte(rangeEnd) do
 		ESCAPES[string.char(charCode)] = "&#" .. charCode .. ";"
 	end
@@ -1175,11 +1175,7 @@ local ClassList
 
 do
 	local ClassPropertyExceptions = {
-		Whitelist = { 
-			TriangleMeshPart = ArrayToDict({ "CollisionFidelity" }),
-			MeshPart = ArrayToDict({ "CollisionFidelity" }), -- Added specific override
-			PartOperation = ArrayToDict({ "CollisionFidelity" }), -- Added specific override
-		},
+		Whitelist = {},
 		Blacklist = {
 			LuaSourceContainer = ArrayToDict({ "ScriptGuid" }),
 			Instance = ArrayToDict({ "UniqueId", "HistoryId" }),
@@ -1330,7 +1326,6 @@ do
 		},
 		TriangleMeshPart = {
 			FluidFidelityInternal = "FluidFidelity",
-			CollisionFidelity = function(i) return i.CollisionFidelity end,
 		},
 		MeshPart = { InitialSize = "MeshSize" },
 		PartOperation = { InitialSize = "MeshSize" },
