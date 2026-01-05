@@ -1330,6 +1330,7 @@ do
 		},
 		TriangleMeshPart = {
 			FluidFidelityInternal = "FluidFidelity",
+			CollisionFidelity = function(i) return i.CollisionFidelity end,
 		},
 		MeshPart = { InitialSize = "MeshSize" },
 		PartOperation = { InitialSize = "MeshSize" },
