@@ -723,7 +723,6 @@ local ESCAPES = {
 	["\0"] = "",
 }
 
-warn(ESCAPES_PATTERN)
 for rangeStart, rangeEnd in string.gmatch(ESCAPES_PATTERN, "(.)%-(.)") do
 	for charCode = string.byte(rangeStart), string.byte(rangeEnd) do
 		ESCAPES[string.char(charCode)] = "&#" .. charCode .. ";"
@@ -1176,7 +1175,7 @@ local ClassList
 
 do
 	local ClassPropertyExceptions = {
-		Whitelist = {},
+		Whitelist = { TriangleMeshPart = ArrayToDict({ "CollisionFidelity" }), MeshPart = ArrayToDict({ "CollisionFidelity" }) },
 		Blacklist = {
 			LuaSourceContainer = ArrayToDict({ "ScriptGuid" }),
 			Instance = ArrayToDict({ "UniqueId", "HistoryId" }),
