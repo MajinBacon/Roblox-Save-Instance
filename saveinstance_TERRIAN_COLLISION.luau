@@ -1829,10 +1829,6 @@ do
 		local API_Dump
 
 		local ok, err = pcall(function()
-			if EXECUTOR_NAME == "Velocity" then -- TODO Temp fix as it crashes on HttpGet for sites that return 403 code
-				return
-			end
-
 			local CLIENT_VERSION_str = tostring(CLIENT_VERSION)
 			local ok, result = pcall(readfile, CLIENT_VERSION_str)
 			if
